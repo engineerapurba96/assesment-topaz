@@ -1,0 +1,57 @@
+<body>
+
+    <div class="category-name"> Tickets</div> <br />
+
+    <div class="card-category-1">
+
+        <div class="basic-card basic-card-aqua">
+            <div class="card-content">
+                <span class="card-title">Open : {{response?.openCount}}</span>
+            </div>
+        </div>
+
+        <div class="basic-card basic-card-lips">
+            <div class="card-content">
+                <span class="card-title">Unassigned : {{response?.unassigned}}</span>
+            </div>
+        </div>
+
+        <div class="basic-card basic-card-light">
+            <div class="card-content">
+                <span class="card-title">High priority : {{response?.high_priority}}</span>
+            </div>
+        </div>
+
+        <div class="basic-card basic-card-dark">
+            <div class="card-content">
+                <span class="card-title">Change Requests : {{response?.changeRq}}</span>
+            </div>
+        </div>
+
+    </div>
+
+    <br />
+
+    <table>
+        <thead>
+            <tr>
+                <th>Support Rep</th>
+                <th>Open Tickets</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let support of supportReps">
+                <td data-column="Name">{{support?.name}}</td>
+                <td data-column="Count">{{support?.count}}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <br>
+    <div class="card-category-1">
+        <canvas baseChart [type]="'pie'" [datasets]="pieChartDatasets" [labels]="pieChartLabels" [options]="pieChartOptions"
+        [plugins]="pieChartPlugins" [legend]="pieChartLegend">
+    </canvas>
+    </div>
+    
+</body>
